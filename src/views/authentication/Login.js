@@ -1,5 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import React from "react";
 import {useState} from "react";
+import{Link} from 'react-router-dom'
 import Input from "../../components/reusables/Input"
 import emailIcon from "../../assets/mail.svg"
 import passwordIcon from "../../assets/password.svg"
@@ -81,17 +83,17 @@ const Login = () => {
         if (e.target.value === ' ') return true
     }
 
-    const checkIfItIsEmail = () => {
+    // const checkIfItIsEmail = () => {
 
-    }
+    // }
     return (
         <div className="authenticationContainer">
             <div className="leftSide">
                 <div className="leftSide_container">
                     <a>
                         Don't have an account?
-                        <span style={{color: "var(--primary_green)", marginLeft: '4px'}}>
-                            sign up
+                        <span >
+                            <Link to="/" style={{color: "var(--primary_green)", marginLeft: '4px'}}>  sign up</Link>
                         </span>
                     </a>
                     <div className="welcome-text">

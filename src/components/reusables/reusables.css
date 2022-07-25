@@ -1,6 +1,6 @@
 .input-container{
     height: 50px;
-    border: 1px solid var(--primary_green);
+    border: 1px solid white;
     border-radius: 3px;
     display: flex;
     align-items: center;
@@ -10,9 +10,10 @@
 }
 
 .label-container{
-    background-color: rgb(48, 255, 245);
+    background-color: white;
     height: 20px;
-    width: 63px;
+    min-width: 63px;
+    padding: 0 5px;
     border-radius: 4px;
     position: absolute;
     left: 18px;
@@ -21,6 +22,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.label-container label{
+    font-size: 10px;
+    color: black;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 .input-container input {
@@ -36,9 +43,12 @@
 .input-container input:focus-visible{
     outline: none;
 }
-
 .input-container:focus-within{
-    border: 2px solid white;
+    border: 2px solid var(--primary_green);
+}
+
+.input-container:focus-within > .label-container{
+    background-color: var(--primary_green);
 }
 .input-container img{
     height: 16px;
