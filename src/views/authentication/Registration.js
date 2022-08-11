@@ -9,6 +9,7 @@ import "./authentication.css";
 import Input from "../../components/reusables/Input";
 import StepContainer from "./register/StepContainer";
 import { useNavigate  } from "react-router-dom";
+import axios from "axios";
 
 const Registration = () => {
 
@@ -29,7 +30,15 @@ const Registration = () => {
     checkIfFieldIsEmpty(e);
   };
   const handleClick = () => {
-    console.log(userInput);
+     let data = {
+      id: 2,
+      firstName:"ujay",
+      lastName: "jp"
+     }
+
+     axios.post("http://localhost:500/account", data).
+     then((data) => console.log(data)).
+     catch((error) => console.log(error))
   };
 
   const checkIfFieldIsEmpty = (e) => {
@@ -79,9 +88,7 @@ const Registration = () => {
     if (e.target.value === " ") return true;
   };
 
-  // const checkIfItIsEmail = () => {
-
-  // }
+ 
   return (
     <div className="authenticationContainer">
       <div className="leftSide">
