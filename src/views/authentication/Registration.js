@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import emailIcon from "../../assets/mail.svg";
 import passwordIcon from "../../assets/password.svg";
@@ -9,8 +8,12 @@ import phone from '../../assets/phone.svg'
 import "./authentication.css";
 import Input from "../../components/reusables/Input";
 import StepContainer from "./register/StepContainer";
+import { useNavigate  } from "react-router-dom";
 
 const Registration = () => {
+
+  let navigate = useNavigate()
+
   const [userInput, setUserInput] = useState({});
   const [step, setStep] = useState(1);
   const [fieldError, setFieldError] = useState({
@@ -83,11 +86,10 @@ const Registration = () => {
     <div className="authenticationContainer">
       <div className="leftSide">
         <div className="leftSide_container">
-          <a>
+
+          <a onClick={() => navigate ("/login")}>
             Have an account?
-            <span >
-              <Link to = "/login" style={{ color: "var(--primary_green)", marginLeft: "4px" }}> sign in</Link>
-            </span>
+            <span  style={{ color: "var(--primary_green)", marginLeft: "4px" }}> sign in </span>
           </a>
           <div className="welcome-text">
             <h1>Welcome To Norbs</h1>

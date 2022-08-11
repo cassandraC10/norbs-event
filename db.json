@@ -1,7 +1,9 @@
 {
-  "acounts":[
+  "accounts":[
     {
-       "id" :
+       "id" : 1,
+       "firstname" : "adeola",
+       "lastname"  : "dee"
     }
   ]
 }

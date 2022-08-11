@@ -1,13 +1,15 @@
-:root{
-  --primary_green: #0cce6b;
-  --primary_black: #0c090D;
+:root {
+  --primary_black: #0C090D;
+  --primary_green: #0CCE6B;
+  --dashboard_main: #1f1f1f;
+  --dashboard_accent: #E1E1E1;
 }
 
-*{
-  font-family: 'Mingzat', sans-serif;
+* {
+  font-family: 'Raleway', sans-serif;
 }
 
-body{
+body {
   margin: 0;
   box-sizing: border-box;
 }
