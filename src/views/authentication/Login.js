@@ -6,6 +6,7 @@ import emailIcon from "../../assets/mail.svg"
 import passwordIcon from "../../assets/password.svg"
 import "./authentication.css"
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const Login = () => {
@@ -28,9 +29,16 @@ const Login = () => {
     }
 
     const handleClick = () => {
-        console.log(userInput)
-    }
-
+        axios.get(`http://localhost:5000/accounts/?email=${userInput["email"]}`)
+           .then((result) => {
+              result.data[0].password === userInput["password"] && navigate ("/dashboard")
+           })
+        .catch((error) => 
+            console.log(error)
+            )
+          
+          
+     };
     const checkIfFieldIsEmpty = (e) => {
         switch (e.target.name) {
             case "email":
@@ -47,7 +55,7 @@ const Login = () => {
                 else {
                     setFieldError(
                         {
-                            ...fieldError, [e.target.name]:
+                          ...fieldError, [e.target.name]:
                                 {
                                     message: "",
                                     error: false

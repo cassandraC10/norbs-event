@@ -30,15 +30,10 @@ const Registration = () => {
     checkIfFieldIsEmpty(e);
   };
   const handleClick = () => {
-     let data = {
-      id: 2,
-      firstName:"ujay",
-      lastName: "jp"
-     }
-
-     axios.post("http://localhost:500/account", data).
-     then((data) => console.log(data)).
-     catch((error) => console.log(error))
+     axios.post("http://localhost:5000/accounts", userInput)
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error))
+       
   };
 
   const checkIfFieldIsEmpty = (e) => {
