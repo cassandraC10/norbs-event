@@ -17,12 +17,10 @@
 .dashboardBodyContainer {
     width: inherit;
     height: 100vh;
-    background-color: var(--dashboard_accent);
+    background-color: var(--dashboard_alternate);
 }
 
 .sideNavLogoSection {
-    border-right: 1px solid var(--dashboard_accent);
-    border-bottom: 1px solid var(--dashboard_accent);
     height: 10%;
     display: flex;
     justify-content: space-between;

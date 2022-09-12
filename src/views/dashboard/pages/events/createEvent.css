@@ -1,0 +1,13 @@
+.createEventContainer{
+    display: flex;
+}
+
+.createEventSteps{
+    width: 40%;
+    padding: 20px;
+}
+
+.createEventSteps >h5{
+    color: white;
+}
+

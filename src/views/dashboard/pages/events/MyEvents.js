@@ -1,17 +1,24 @@
 import React from "react";
 import "./myEvent.css";
 import MyEvent from "./MyEvent";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import axios from "axios";
+import { useDispatch, useSelector} from "react-redux";
+import {setEvents} from '../../../../redux/action/events'
+import {useNavigate} from "react-router-dom"
+
+
 
 const MyEvents = () => {
-  const [eventData, setEventData] = useState([]);
+  const navigate = useNavigate()
+  const dispatch  = useDispatch()
 
+  const {events: eventData} = useSelector((state) => state.eventReducer)
+  console.log(eventData)
   useEffect(() => {
-    axios
+    eventData.length < 1 && axios
       .get("http://localhost:5000/fakeEvents")
-      .then((result) => 
-      setEventData(result.data))
+      .then((result) => dispatch(setEvents(result.data)))
       .catch((error) => console.log(error));
   }, []);
   return (
@@ -28,14 +35,14 @@ const MyEvents = () => {
           </div>
         </div>
 
-        <button>Create Events</button>
+        <button onClick = {() => navigate("/dashboard/create-event")}>Create Events</button>
       </div>
       <div className="my-events-cards">
         {eventData.length > 0 ? (
-          eventData.map((event) => <MyEvent event={event} />)
-        ) : (
+          eventData.map((event, index) => <MyEvent key={index} event={event} />)
+        ) : 
           <h5 style={{ textAlign: "center" }}>No Event</h5>
-        )}
+        }
       </div>
     </div>
   );
